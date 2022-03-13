@@ -1,0 +1,5 @@
+/* h1の色と線を変更 */
+h1 {
+    color: blue;
+    border-bottom: double 6px #87CEFA;
+}

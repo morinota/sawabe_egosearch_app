@@ -7,7 +7,10 @@
 <!-- 余白が欲しいのでcontanerで囲む -->
 <div class="container">
     <h1>index.html表示してます</h1>
-    <p>{{ my_dict.insert_something1 }}</p>
+    <!-- 画像を表示 -->
+    <img src="{{ url_for('static', filename='images/wordcrowd_sawabe.png')}}"
+
+    <p id="test">{{ my_dict.insert_something1 }}</p>
     <p>{{ my_dict.insert_something2 }}</p>
 
     <h2>タイトル表示</h2>
@@ -23,4 +26,7 @@
         {% endfor %}
     </ul>
 </div>
+
+<!-- 読み込みはlayout.htmlで行っても良いですが、全てのページで処理が起こって欲しくはないのでindex.htmlに追加 -->
+<script src="{{ url_for('static', filename='javascript/sample.js') }}"></script>
 {% endblock %}
