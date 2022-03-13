@@ -1,32 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test web oppai</title>
-</head>
-<body>
-    <h1>index.html表示しています</h1>
-    <!-- テンプレートにPython内のデータを埋め込む -->
-    <p>{{my_dict.insert_something1}}</p>
-    <p>{{my_dict.insert_something2}}</p>
+<!-- この部分は共通のレイアウトlayout.htmlを使う -->
+{% extends "layout.html" %}
 
-    <h2>タイトル表示</h2>
-    <ul>
-        <!-- list型とfor文でデータを埋め込む -->
-        {% for title in my_dict.test_titles %}
-            <!-- if, endif文で表示させるデータに条件をつける -->
-            {% if title == 'title2' %}
-            <li>{{title}}</li>
-            {% elif title == 'title3' %}
-            <li>見せられないよ</li>
-            {% else %}
-            <li>XXXX</li>
-            {% endif %}
-            
-        <!-- endforで閉じるのを忘れずに -->
-        {% endfor %} 
-    </ul>
-</body>
-</html>
+<!-- 以下の内容が、layout.htmlに記述されているブロックに挿入される -->
+{% block content %}
+<h1>index.html表示してます</h1>
+<p>{{ my_dict.insert_something1 }}</p>
+<p>{{ my_dict.insert_something2 }}</p>
+
+<h2>タイトル表示</h2>
+<ul>
+    {% for title in my_dict.test_titles %}
+    {% if title == 'title2' %}
+        <li>{{ title }}</li>
+    {% elif title == 'title3' %}
+        <li>見せられないよ</li>
+    {% else %}
+        <li>xxxx</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

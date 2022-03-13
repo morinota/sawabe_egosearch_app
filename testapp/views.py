@@ -15,4 +15,4 @@ def index():
 # 他のページも作ってみる
 @app.route('/test')
 def other1():
-    return 'this is test page!'
+    return render_template('testapp/index2.html')
